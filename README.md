@@ -5,7 +5,7 @@
 3. meta loss add
 4. acc show
 5. multimodal Fusion
-6. MLP must have the same data shape for each data(try to find another can adapt differeent data in each modal)
+6. MLP must have the same data shape for each data(try to find another can adapt different data in each modal)
 
 #  Code Explain
 
