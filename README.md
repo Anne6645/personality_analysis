@@ -3,9 +3,8 @@
 1. how to multimodal alignment(double check data)
 2. lr update
 3. meta loss add
-4. acc show
-5. multimodal Fusion
-6. MLP must have the same data shape for each data(try to find another can adapt different data in each modal)
+4. multimodal Fusion
+5. MLP must have the same data shape for each data(try to find another can adapt different data in each modal)
 
 #  Code Explain
 
@@ -63,7 +62,6 @@ How to do meta adaptive:
 
  meta adaptive process:
 
-
    meta adaptive process aims to solve the Data scarcity in one specific domain.
    The data vplume in each topic is listed as follow.
 
@@ -88,7 +86,7 @@ Example: Source Topic1 -> Target Topic4
 
 First, we update prediction model on Topic1 for inner update(Support). At this update process, model parameter before update is recorded and model parameter after update is recorded as well. The two paramter is used to calculate task_gradient
 
-Then update model on Target4 (Query). We use query loss to calculate grad on the model paramter. The is called 'meta grad'
+Then update model on Target4 (Query). We use query loss to calculate grad on the model parameter. This is called 'meta grad'
 
 Task_gradient and meta_grad is used to calculate domain_similarity
 
