@@ -1,10 +1,6 @@
-# Problem: to do list
-
-1. how to multimodal alignment(double check data)
-2. lr update
-3. meta loss add
-4. multimodal Fusion
-5. MLP must have the same data shape for each data(try to find another can adapt different data in each modal)
+<p align="center">
+    <img src="assets/Big Five Framework.png" height="300">
+</p>
 
 #  Code Explain
 
