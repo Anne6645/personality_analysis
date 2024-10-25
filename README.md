@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="Big Five Framework.png" height="300">
+    <img src="Big Five Framework.jpg" height="300">
 </p>
 
 #  Code Explain
