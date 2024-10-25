@@ -22,8 +22,7 @@ First Impressions dataset created by Biel and Gatica-Perez from the 2016 ChaLear
 To run the code, simply clone the repository and install the required packages:
 
 ```bash
-git clone https://github.com/ZhiyaoShu/LLM-HGNN-MBTI.git
-cd LLM-HGNN-MBTI
+git clone https://github.com/Anne6645/personality_analysis.git
 pip install -r requirements.txt
 ```
 
