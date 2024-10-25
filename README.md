@@ -5,7 +5,9 @@
 ## Overview
 This project proposes a novel multi-modal personality analysis framework that addresses these challenges by synchronizing and integrating features from multiple modalities and enhancing model generalization through domain adaptation. We introduce a timestamp-based modality alignment mechanism that synchronizes data based on spoken word timestamps, ensuring accurate correspondence across modalities and facilitating effective feature integration. To capture temporal dependencies and inter-modal interactions, we employ Bidirectional Long Short-Term Memory networks and self-attention mechanisms, allowing the model to focus on the most informative features for personality prediction. Furthermore, we develop a gradient-based domain adaptation method that transfers knowledge from multiple source domains to improve performance in target domains with scarce labeled data.
 
-![image](fig/domain adaptation.png)
+<p align="center">
+    <img src="fig/domain adaptation.png" height="300">
+</p>
 
 ### Key Contributions
 Our work contributes to the following aspects:
