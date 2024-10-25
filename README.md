@@ -13,7 +13,7 @@ Our work contributes to the following aspects:
 3. We develop a gradient-based domain adaptation method that transfers knowledge from multiple source domains to target domains with limited labeled data, enhancing model generalization and performance in few-shot learning scenarios.
 4.  We validate the effectiveness of our proposed framework through extensive experiments on real-world datasets, demonstrating significant improvements over existing methods in personality prediction tasks.
 
-## [Datasets]
+## [Datasets](https://chalearnlap.cvc.uab.cat/dataset/24/description/）
 
 First Impressions dataset created by Biel and Gatica-Perez from the 2016 ChaLearn competition is used in this research.
 
@@ -27,8 +27,17 @@ cd LLM-HGNN-MBTI
 pip install -r requirements.txt
 ```
 
-```python
+To use this code, the fused data from How to do meta adaptive:
+    
+ In our work, we divided the dataset into 20 topics according to interview text in each interview video. we use the 'bart-large-mnli' from facebook as text classification model (<https://huggingface.co/facebook/bart-large-mnli>)
 
-## [Training]
+You can classfy your data into different domains and change the target domain and source domain
+
+```python
+python meta_learning.py
+
+
+## Contribution & Collaborations
+
 
 ## You can Cite Our Work:
