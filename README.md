@@ -2,111 +2,33 @@
     <img src="Big Five Framework.jpg" height="300">
 </p>
 
-#  Code Explain
+## Overview
+This project proposes a novel multi-modal personality analysis framework that addresses these challenges by synchronizing and integrating features from multiple modalities and enhancing model generalization through domain adaptation. We introduce a timestamp-based modality alignment mechanism that synchronizes data based on spoken word timestamps, ensuring accurate correspondence across modalities and facilitating effective feature integration. To capture temporal dependencies and inter-modal interactions, we employ Bidirectional Long Short-Term Memory networks and self-attention mechanisms, allowing the model to focus on the most informative features for personality prediction. Furthermore, we develop a gradient-based domain adaptation method that transfers knowledge from multiple source domains to improve performance in target domains with scarce labeled data.
+![Image]()
 
-code structure: this code is divided in two parts:
-1. Feature extraction
-2. model prediction
-3. meta adaptive
+### Key Contributions
+Our work contributes to the following aspects:
+1. We propose an effective multi-modal personality analysis framework that effectively integrates facial expressions, audio signals, textual content, and background information from short videos for personality prediction.
+2. We introduce a semantic unit modality alignment mechanism that synchronizes multi-modal data based on spoken word timestamps, ensuring accurate correspondence across modalities and enhancing feature representation.
+3. We develop a gradient-based domain adaptation method that transfers knowledge from multiple source domains to target domains with limited labeled data, enhancing model generalization and performance in few-shot learning scenarios.
+4.  We validate the effectiveness of our proposed framework through extensive experiments on real-world datasets, demonstrating significant improvements over existing methods in personality prediction tasks.
 
-Feature extraction:
-Feature used in this work includes 4 parts:
+## [Datasets]
 
-Face_encoding_list :dimension(image_selected,128), show feature of face of interviewee
+First Impressions dataset created by Biel and Gatica-Perez from the 2016 ChaLearn competition is used in this research.
 
-audio_encoding_list:(_,1024), which is the global video feature
+## Settings
 
-audio_mfcc_list: (_,24), 梅尔倒谱系数（Mel-scaleFrequency Cepstral Coefficients，简称MFCC）
+To run the code, simply clone the repository and install the required packages:
 
-'text_encoding_list':(70,1024), which is the text feature 
-
-
-```
-FE Stage 1:
-    Use the text to classify data into 10 TOPICS
-    Put data into 'Topic' folder
-```
-```
-FE Stage 2:
-    Feed 'audio_encoding_list' and 'audio_mfcc_list' into bilstm structure and name the extracted feature as 'self_feature_video_bilstm','self_feature_audio_bilstm'
-    (model/Model.py/class self_feature_learn_BiLSTM(nn.Module))
-```
-```
-FE Stage 3:
-    Feed'self_feature_video_bilstm','self_feature_audio_bilstm' into self attention.And get 'train_self_feature_video_self_attention' and 'train_self_feature_audio_self_attention'
-```
-```
-FE Stage 4:
-    Feed 'self_feature_video_bilstm','self_feature_audio_bilstm' into 
-    Data_Fusion_Model and get 'shared_feature'
-    (model/Model.py/class Data_Fusion_model(nn.Module))
-```
-```
-FE Stage 5:
-    Concate 'shared_feature' and 'train_self_feature_video_self_attention','train_self_feature_audio_self_attention'
-     together.
-
-     ! This part has one problem, data must be cut for the same size after be concated together.
+```bash
+git clone https://github.com/ZhiyaoShu/LLM-HGNN-MBTI.git
+cd LLM-HGNN-MBTI
+pip install -r requirements.txt
 ```
 
+```python
 
-How to do meta adaptive:
-    
- In our work, we divided the dataset into 10 topics according to interview text in each interview video. we use the 'bart-large-mnli' from facebook as text classification model (<https://huggingface.co/facebook/bart-large-mnli>)
+## [Training]
 
- This is specified in the code -model/classification.py
-
- meta adaptive process:
-
-   meta adaptive process aims to solve the Data scarcity in one specific domain.
-   The data vplume in each topic is listed as follow.
-
-   topic 1:3540
-   topic 2:1800
-   topic 3:
-   topic 4:
-   topic 5:
-   topic 6:
-   topic 7:
-   topic 8:
-   topic 9:
-   topic 10:
-
-
-# Experiment Setting
-
-In this work,we take Topic1 and Topic2 as Source Topic. 
-In this work,we take other Topic as Target Topic. 
-
-Example: Source Topic1 -> Target Topic4 
-
-First, we update prediction model on Topic1 for inner update(Support). At this update process, model parameter before update is recorded and model parameter after update is recorded as well. The two paramter is used to calculate task_gradient
-
-Then update model on Target4 (Query). We use query loss to calculate grad on the model parameter. This is called 'meta grad'
-
-Task_gradient and meta_grad is used to calculate domain_similarity
-
-After one iteration, use task similarity to update model parameter.
-
-Enter model 
-
-
-
-# Experiment Result analysis
-
-1.Result compare:
-Target data into model directly
-Target data for transfer update
-
-R:show transfer efficiency
-Topic1-->Topic2
-![Alt text](image.png)
-数据增多？
-Topic1-->Topic3
-![Alt text](image-1.png)
-
-Topic1-->Topic4
-![Alt text](image-2.png)
-Topic1-->Topic5
-![Alt text](image-3.png)
-# How to run the code
+## You can Cite Our Work:
