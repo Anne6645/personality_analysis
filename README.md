@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="fig/logo.png" height="300">
+    <img src="fig/logo.png">
 </p>
 
 ## Overview
