@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="fig/Big Five Framework.jpg" height="300">
+    <img src="fig/logo.png" height="300">
 </p>
 
 ## Overview
